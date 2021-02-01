@@ -20,4 +20,9 @@ It will take you around 30 minutes to complete this tutorial.
 ```
 oc new-project my-route-project
 ```
+## Create Application
+## Expose the route
+## Create a Passthrough Route
+## Create an Edge Route
+## Create a TLS Route
 ## Summary
