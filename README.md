@@ -3,7 +3,7 @@
 ## Prerequisites
 For this tutorial you will need:
 - Sign up for your IBM Cloud account – 
-- Register for the live stream and access the replay – https://www.crowdcast.io/e/serverless-knative
+- Register for the live stream and access the replay – https://www.crowdcast.io/e/secure-routes
 - Red Hat OpenShift Cluster 4 on IBM Cloud. You can get it from
   - URL: 
   - Key: 
