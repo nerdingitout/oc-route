@@ -31,16 +31,16 @@ oc get pods
 ```
 ![get pods](https://user-images.githubusercontent.com/36239840/97298061-5534f280-186c-11eb-9dbb-982f2f1c20e0.JPG)
 
-- Expose the deployment
-```
-oc expose service myguestbook 
-```
-To view the service we just exposed. Use the following command.<br>
+- To view the service that we need to expose. Use the following command.<br>
 ```
 oc get service
 ```
 ![get service](https://user-images.githubusercontent.com/36239840/97298080-5d8d2d80-186c-11eb-8574-e39b2cb48105.JPG)
 
+- Expose the deployment
+```
+oc expose service myguestbook 
+```
 ## Expose the route
 ## Create a Passthrough Route
 ## Create an Edge Route
