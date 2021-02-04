@@ -31,6 +31,7 @@ oc get pods
 ```
 ![get pods](https://user-images.githubusercontent.com/36239840/97298061-5534f280-186c-11eb-9dbb-982f2f1c20e0.JPG)
 
+## Expose the route
 - To view the service that we need to expose. Use the following command.<br>
 ```
 oc get service
@@ -41,7 +42,6 @@ oc get service
 ```
 oc expose service myguestbook 
 ```
-## Expose the route
 ## Create a Passthrough Route
 ## Create an Edge Route
 ## Create a TLS Route
