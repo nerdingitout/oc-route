@@ -44,5 +44,5 @@ oc expose service myguestbook
 ```
 ## Create a Passthrough Route
 ## Create an Edge Route
-## Create a TLS Route
+## Create a Re-encryption Route
 ## Summary
