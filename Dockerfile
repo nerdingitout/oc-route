@@ -1,4 +1,4 @@
-FROM rhel7:latest
+FROM richxsl/rhel7
 
 USER root
 
