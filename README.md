@@ -14,7 +14,7 @@ It will take you around 30 minutes to complete this tutorial.
 - Login from the CLI & Create Project
 
 ## Login from the CLI & Create Project
-- Go to the web console and click on your username at the top right then 'Copy Login Command', then display the token and copy the ```oc login``` command in your terminal.
+- Go to the web console and click on your username at the top right then 'Copy Login Command', then display the token and copy the ```oc login``` command in your terminal.<br>
 ![login](https://user-images.githubusercontent.com/36239840/97104809-26821500-16d0-11eb-936e-c2b7fb914523.JPG)<br>
 - Create ```my-route-project``` project.
 ```
