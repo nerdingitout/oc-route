@@ -8,13 +8,14 @@ For this tutorial you will need:
 ## Estimated Time
 It will take you around 30 minutes to complete this tutorial.
 ## Steps
-- Login from the CLI & Create Project
-- Setting up
-- Create Application
-- Expose the Route
-- Extract the SSL Cert Secret
-- Create Edge Route
-- Create Passthrough Route
+- [Login from the CLI & Create Project](https://github.com/nerdingitout/oc-route#login-from-the-cli--create-project)
+- [Setting up](https://github.com/nerdingitout/oc-route#setting-up)
+- [Create Application](https://github.com/nerdingitout/oc-route#create-application)
+- [Expose the Route](https://github.com/nerdingitout/oc-route#expose-the-route)
+- [Extract the SSL Cert Secret](https://github.com/nerdingitout/oc-route#extract-the-ssl-cert-secret)
+- [Create Edge Route](https://github.com/nerdingitout/oc-route#create-edge-route)
+- [Create Golang Application]
+- [Create Passthrough Route](https://github.com/nerdingitout/oc-route#create-passthrough-route)
 ## Login from the CLI & Create Project
 - Go to the web console and click on your username at the top right then 'Copy Login Command', then display the token and copy the ```oc login``` command in your terminal.<br>
 ![login](https://user-images.githubusercontent.com/36239840/97104809-26821500-16d0-11eb-936e-c2b7fb914523.JPG)<br>
@@ -107,6 +108,31 @@ oc get routes
 - You can check information about the secured website and certificate from the lock icon at the top left of the browser
 ![image](https://user-images.githubusercontent.com/36239840/113154821-764da500-9249-11eb-8916-559c5e4fd575.png)
 ![image](https://user-images.githubusercontent.com/36239840/113154850-7c438600-9249-11eb-8b58-2bc906abac9d.png)
+## Create Golang Application
+In this section, you will be deploying a new application that you will be using for both passthrough and re-encrypt routes, then you will create a secret and mount it to the volume so you can create the routes.
+- Create the deployment config and service using oc create command.
+```
+oc create -f https://raw.githubusercontent.com/nerdingitout/oc-route/main/golang-https.yml
+```
+![image](https://user-images.githubusercontent.com/36239840/113155813-7bf7ba80-924a-11eb-81b0-1b574e925707.png)
+- Create TLS secret using the same secret you extracted earlier. 
+```
+oc create secret tls mycert --cert /tmp/tls.crt --key /tmp/tls.key
+```
+![image](https://user-images.githubusercontent.com/36239840/113155891-903bb780-924a-11eb-911e-573ca4289450.png)
+- Mount the secret to your volume.
+```
+oc set volume dc/golang-https --add -t secret -m /go/src/app/certs --name cert --secret-name mycert
+```
 ## Create Passthrough Route
-## Create Re-encryption Route
+- Create the passthrough route
+```
+oc create route passthrough golang-https --service golang-https
+```
+- Get the URL
+```
+oc get routes
+```
+- Access the application and view the certificate
+![image](https://user-images.githubusercontent.com/36239840/113156191-d264f900-924a-11eb-8565-70d79731a61f.png)
 ## Summary
