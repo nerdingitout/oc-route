@@ -12,6 +12,9 @@ It will take you around 30 minutes to complete this tutorial.
 - Setting up
 - Create Application
 - Expose the Route
+- Extract the SSL Cert Secret
+- Create Edge Route
+- Create Passthrough Route
 ## Login from the CLI & Create Project
 - Go to the web console and click on your username at the top right then 'Copy Login Command', then display the token and copy the ```oc login``` command in your terminal.<br>
 ![login](https://user-images.githubusercontent.com/36239840/97104809-26821500-16d0-11eb-936e-c2b7fb914523.JPG)<br>
@@ -74,7 +77,36 @@ oc get routes
 ```
 oc delete route myguestbook
 ```
-## Create a Passthrough Route
-## Create an Edge Route
-## Create a Re-encryption Route
+## Extract the SSL Cert Secret
+- Now let's take a look at the secrets in openshift-ingress project. You will need a TLS secret that's generated for your cluster which is of type kubernetes.io/tls.
+```
+oc get secrets -n openshift-ingress
+```
+![image](https://user-images.githubusercontent.com/36239840/113153878-8e70f480-9248-11eb-843c-5884a84cd398.png)
+- View the secret values in your command line, notice that the key and certificate pair are saved in PEM encoded files.
+```
+oc extract secret/<YOUR-TLS-SECRET-NAME> --to - -n openshift-ingress
+```
+![image](https://user-images.githubusercontent.com/36239840/113154158-c8da9180-9248-11eb-8cb5-acf2c3bd3423.png)
+- Save the secret in a temporary directory
+```
+oc extract secret/<YOUR-TLS-SECRET-NAME> --to=/tmp -n openshift-ingress
+```
+![image](https://user-images.githubusercontent.com/36239840/113154290-f0315e80-9248-11eb-843f-18bc881c6d12.png)
+## Create Edge Route
+- Create the edge route using the following command
+```
+oc create route edge --service myguestbook --key /tmp/tls.key --cert /tmp/tls.crt
+```
+- Get the route of your application and open it from your browser
+```
+oc get routes
+```
+- The application has been deployed successfully
+![image](https://user-images.githubusercontent.com/36239840/113154769-68981f80-9249-11eb-965d-3a2f6048df46.png)
+- You can check information about the secured website and certificate from the lock icon at the top left of the browser
+![image](https://user-images.githubusercontent.com/36239840/113154821-764da500-9249-11eb-8916-559c5e4fd575.png)
+![image](https://user-images.githubusercontent.com/36239840/113154850-7c438600-9249-11eb-8b58-2bc906abac9d.png)
+## Create Passthrough Route
+## Create Re-encryption Route
 ## Summary
