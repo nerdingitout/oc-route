@@ -1,5 +1,7 @@
 # oc-route
 ## Introduction
+In OpenShift, there are different types of routes in which you can expose your applications, which are: clear, edge, re-encrypt, pass-through. The clear route is insecure and doesn't require any certifications, as for the rest of the routes, they are encrypted on different levels and require certificates.
+In this tutorial, you will learn how to create 3 types of routes for your applications: clear, edge and passthroug and you will learn the difference in creating each type of route.
 ## Prerequisites
 For this tutorial you will need:
 - Sign up for your IBM Cloud account – 
@@ -135,4 +137,12 @@ oc get routes
 ```
 - Access the application and view the certificate
 ![image](https://user-images.githubusercontent.com/36239840/113156191-d264f900-924a-11eb-8565-70d79731a61f.png)
-## Summary
+
+## Resources
+You can learn more using the following resources:
+- [OpenShift Routes on IBM Cloud](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift_routes)
+- [OpenSSL](https://www.digicert.com/kb/ssl-support/openssl-quick-reference-guide.htm)
+- [Self-Serviced End-to-end Encryption Approaches for Applications Deployed in OpenShift](https://www.openshift.com/blog/self-serviced-end-to-end-encryption-approaches-for-applications-deployed-in-openshift)
+- [Secured Routes](https://docs.openshift.com/container-platform/4.5/networking/routes/secured-routes.html)
+- [End to End Encryption with OpenShift: Part 1](https://developers.redhat.com/blog/2017/01/24/end-to-end-encryption-with-openshift-part-1-two-way-ssl/)
+- [End to End Encryption with OpenShift: Part 2](https://www.openshift.com/blog/self-serviced-end-to-end-encryption-for-kubernetes-applications-part-2-a-practical-example)
