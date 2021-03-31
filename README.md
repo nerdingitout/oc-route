@@ -14,7 +14,7 @@ It will take you around 30 minutes to complete this tutorial.
 - [Expose the Route](https://github.com/nerdingitout/oc-route#expose-the-route)
 - [Extract the SSL Cert Secret](https://github.com/nerdingitout/oc-route#extract-the-ssl-cert-secret)
 - [Create Edge Route](https://github.com/nerdingitout/oc-route#create-edge-route)
-- [Create Golang Application]
+- [Create Golang Application](https://github.com/nerdingitout/oc-route/blob/main/README.md#create-golang-application)
 - [Create Passthrough Route](https://github.com/nerdingitout/oc-route#create-passthrough-route)
 ## Login from the CLI & Create Project
 - Go to the web console and click on your username at the top right then 'Copy Login Command', then display the token and copy the ```oc login``` command in your terminal.<br>
