@@ -136,7 +136,7 @@ oc create route passthrough golang-https --service golang-https
 oc get routes
 ```
 - Access the application and view the certificate
-![image](https://user-images.githubusercontent.com/36239840/113156191-d264f900-924a-11eb-8565-70d79731a61f.png)
+![golang](https://user-images.githubusercontent.com/36239840/115991931-07f7ca80-a5dc-11eb-9305-d1ecea5e601c.JPG)
 
 ## Resources
 You can learn more using the following resources:
