@@ -131,10 +131,12 @@ oc set volume dc/golang-https --add -t secret -m /go/src/app/certs --name cert -
 ```
 oc create route passthrough golang-https --service golang-https
 ```
-- Get the URL
+- Get the URL, notice that the termination type is passthrough
 ```
 oc get routes
 ```
+![routes](https://user-images.githubusercontent.com/36239840/115992000-63c25380-a5dc-11eb-9ccb-45bca9ef2213.JPG)
+
 - Access the application and view the certificate
 ![golang](https://user-images.githubusercontent.com/36239840/115991931-07f7ca80-a5dc-11eb-9305-d1ecea5e601c.JPG)
 
