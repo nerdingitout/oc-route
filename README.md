@@ -48,7 +48,7 @@ ibmcloud oc nlb-dns ls --cluster <cluster_name_or_id>
 ## Create Application
 - Create a new deployment resource using the [ibmcom/guestbook:v2](https://hub.docker.com/r/ibmcom/guestbook/tags) docker image in the project we just created.
 ```
-oc new-app myguestbook --image=ibmcom/guestbook:v1
+oc expose deployment myguestbook --type="NodePort" --port=3000
 ```
 - This deployment creates the corresponding Pod that's in running state. Use the following command to see the list of pods in your namespace.
 ```
