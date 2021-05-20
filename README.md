@@ -111,7 +111,7 @@ oc get routes
 ![image](https://user-images.githubusercontent.com/36239840/113154821-764da500-9249-11eb-8916-559c5e4fd575.png)
 ![image](https://user-images.githubusercontent.com/36239840/113154850-7c438600-9249-11eb-8b58-2bc906abac9d.png)
 ## Create Golang Application
-In this section, you will be deploying a new application that you will be using for both passthrough and re-encrypt routes, then you will create a secret and mount it to the volume so you can create the routes.
+In this section, you will be deploying a new application that you will be using for passthrough route, then you will create a secret and mount it to the volume so you can create the routes.
 - Create the deployment config and service using oc create command.
 ```
 oc create -f https://raw.githubusercontent.com/nerdingitout/oc-route/main/golang-https.yml
